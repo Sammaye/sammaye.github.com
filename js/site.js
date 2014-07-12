@@ -13,11 +13,14 @@ function populateGrid(data){
 	$.each(data, function(){
 		var repo = $(this)[0];
 		grid.append(
-			$('<div/>', {'class' : 'col-sm-10'}).append(
-				$('<a/>', {href : repo.html_url}).html(repo.name)
+			$('<div/>', {'class' : 'col-sm-11 repo-item'}).append(
+				$('<a/>', {href : repo.html_url}).append($('<h4/>').html(repo.name))
 			)
 			.append(
 				$('<p/>').html(repo.description)
+			)
+			.append(
+				$('<p/>').html('Language: ' + repo.language)
 			)
 		);
 		
