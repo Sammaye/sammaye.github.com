@@ -37,8 +37,12 @@ body{
 	box-shadow: 0px 8px 13px -7px rgba(186,186,186,1);
 }
 
+.top-bar h1{
+	margin-top:10px;
+}
+
 .toolbar{
-	padding-top:25px;
+	padding-top:15px;
 }
 
 .toolbar .input-group{
