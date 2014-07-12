@@ -1,3 +1,25 @@
 body{
 	font-family: 'Ubuntu', sans-serif;
 }
+
+.side-panel{
+	min-height:100%;
+	position:fixed;
+	background:url('http://sammaye.files.wordpress.com/2014/05/cropped-voyager-1-pale-blue-dot-nasa.jpg') no-repeat scroll center center / cover rgba(51, 71, 61, 0.05);
+}
+
+.about-tile{
+	width:100%;
+	position:absolute;
+	padding:26px;
+	margin:0px auto;
+	bottom:0;
+}
+
+.about-tile h1{
+	color:#fff;
+}
+
+.about-tile h3{
+	color:#666;
+}
