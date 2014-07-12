@@ -1,5 +1,6 @@
 body{
 	font-family: 'Ubuntu', sans-serif;
+	background:#f8f8f8;
 }
 
 .side-panel{
@@ -22,4 +23,22 @@ body{
 
 .about-tile h3{
 	color:#666;
+}
+
+.about-tile .user-info{
+	margin-left:150px;
+}
+
+.toolbar{
+	padding-top:25px;
+}
+
+.toolbar .input-group{
+	width:50%;
+	margin-left:20px;
+	float:right;
+}
+
+.toolbar .btn-group{
+	float:right;
 }
