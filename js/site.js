@@ -1,10 +1,6 @@
-/**
- * 
- */
 $(function(){
 	$.get('https://api.github.com/users/Sammaye/repos', null, 'json')
 	.done(function(data){
-		console.log(data);
 		populateGrid(data);
 	});
 });
@@ -18,10 +14,10 @@ function populateGrid(data){
 		var repo = $(this)[0];
 		grid.append(
 			$('<div/>', {'class' : 'col-sm-10'}).append(
-				$('<a/>', {href : $(this).html_url}).html($(this)[0].name)
+				$('<a/>', {href : repo.html_url}).html(repo.name)
 			)
 			.append(
-				$('<p/>').html($(this)[0].description)
+				$('<p/>').html(repo.description)
 			)
 		);
 		
