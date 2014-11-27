@@ -50,8 +50,7 @@ body{
 }
 
 .toolbar{
-	padding-top:8px;
-	padding-bottom:8px;
+	padding:8px;
 }
 
 .toolbar .input-group{
@@ -77,7 +76,7 @@ body{
 .navbar-fixed{
 	position:fixed;
 	top:0;
-	z-index:999999999999;
+	z-index:999;
 }
 
 .navbar-toggle{
@@ -93,6 +92,15 @@ body{
 	top:20px;
 	left:10px;
 	border:1px solid #1a1a1a;
+	z-index:999999999;
+	padding:0;
+}
+
+.anchor{
+	display: block;
+	height: 50px;
+	margin-top: -50px;
+	visibility: hidden;
 }
 
 @media (max-width: 768px) {
