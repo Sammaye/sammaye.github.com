@@ -1,6 +1,6 @@
 body{
 	font-family: 'Ubuntu', sans-serif;
-	background:#f8f8f8;
+	background:#f0f0f0;
 }
 
 .side-panel{
@@ -31,18 +31,23 @@ body{
 
 .top-bar{
 	background:#fff;
-	margin-bottom:20px;
+	margin-bottom:60px;
+	height:50px;
+}
+
+.top-bar-inner{
+	background:#fff;
 	-webkit-box-shadow: 0px 8px 13px -7px rgba(186,186,186,1);
 	-moz-box-shadow: 0px 8px 13px -7px rgba(186,186,186,1);
 	box-shadow: 0px 8px 13px -7px rgba(186,186,186,1);
 }
 
-.top-bar h1{
+.top-bar-inner h1{
 	margin-top:10px;
 }
 
 .toolbar{
-	padding-top:15px;
+	padding-top:8px;
 }
 
 .toolbar .input-group{
@@ -63,4 +68,10 @@ body{
 	border-radius:4px;
 	padding:15px;
 	padding-top:0;
+}
+
+.navbar-fixed{
+	position:fixed;
+	top:0;
+	z-index:999999999999;
 }

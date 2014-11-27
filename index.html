@@ -20,38 +20,73 @@
 	</head>
 	<body>
 <div class="container-fluid">
-<div class="row">
-<div class="col-sm-18 side-panel">
-<div class="about-tile">
-	<img src="https://avatars3.githubusercontent.com/u/323996?s=460" width="130" height="130" class="pull-left"/>
-	<div class="user-info">
-	<h1>Sam Millman (سَامٌ مِلْمَانٌ)</h1>
-	<h3>@Sammaye (سَامَّيٍ)</h3>
+
+	<img src="https://avatars3.githubusercontent.com/u/323996?s=460" class="main-avatar" width="130" height="130" style="position:absolute; top:20px; left:10px; border:1px solid #1a1a1a;"/>
+	
+	<div class="row" style="background:#1a1a1a;">
+	<div class="col-sm-4"></div>
+	<div class="col-sm-44">
+	<h1 style="color:#fff;">Sam Millman (إِبْرَاهِيمُ) <span style="font-size:14px;">@Sammaye (سَمَّيٌ)</span></h1>
+	</div>
+	
+	</div>
+
+<div class="row top-bar">
+<div class="top-bar-inner clearfix">
+	<div class="col-sm-4">
+	
+	<div class="hidden-brand" style='margin-top:5px; display:none;'>
+	<img src="https://avatars3.githubusercontent.com/u/323996?s=460" width="40" height="40" style="" class="pull-left"/>
+	<div style='margin-left:50px;'>Sam Millman (إِبْرَاهِيمُ)</div>
+	</div>
+	
+	</div>
+	<div class="col-sm-22">
+	
+	      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+	
+	    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">GitHub <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Blog</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Profiles <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="#">Stackoverflow</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Google+</a></li>
+            <li><a href="#">LinkedIn</a></li>
+          </ul>
+        </li>
+      </ul>
+      </div>
+</div>
+	
+	<div class="col-sm-22 toolbar clearfix">
+	<div class="input-group">
+	  <input class="form-control" type="email" placeholder="Enter search terms">
+	  <div class="input-group-btn"><button class="btn btn-primary">Search</button></div>
+	</div>
+	<div class="btn-group">
+	  <button type="button" class="btn btn-default active"><span class="glyphicon glyphicon-sort-by-alphabet"></span></button>
+	  <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-sort-by-alphabet-alt"></span></button>
+	</div>
+	</div>
 	</div>
 </div>
-</div>
-<div class="col-sm-30 col-sm-offset-18">
-<div class="row top-bar">
-<div class="col-sm-24">
-	<h1>GitHub Repositories</h1>
-</div>
-<div class="col-sm-24 toolbar clearfix">
-<div class="input-group">
-  <input class="form-control" type="email" placeholder="Enter search terms">
-  <div class="input-group-btn"><button class="btn btn-primary">Search</button></div>
-</div>
-<div class="btn-group">
-  <button type="button" class="btn btn-default active"><span class="glyphicon glyphicon-sort-by-alphabet"></span></button>
-  <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-sort-by-alphabet-alt"></span></button>
-</div>
-</div>
+
+
+<div class="row">
+<div class="repo-grid row"></div>
 </div>
 
-<div class="repo-grid row">
-</div>
 
-</div>
-</div>
 </div>
 	
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

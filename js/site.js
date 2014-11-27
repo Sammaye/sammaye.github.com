@@ -1,3 +1,16 @@
+$(window).bind('scroll load', function(e){
+	var offset = $('.top-bar').offset();
+	if($(window).scrollTop() > offset.top){
+		$('.top-bar-inner').addClass('navbar-fixed');
+		$('.top-bar-inner .hidden-brand').css({display: 'block'});
+		$('.main-avatar').css({display: 'none'});
+	}else{
+		$('.main-avatar').css({display: 'block'});
+		$('.top-bar-inner .hidden-brand').css({display: 'none'});
+		$('.top-bar-inner').removeClass('navbar-fixed')
+	}
+});
+
 $(function(){
 	$.get('https://api.github.com/users/Sammaye/repos', null, 'json')
 	.done(function(data){
