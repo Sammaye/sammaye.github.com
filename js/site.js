@@ -25,8 +25,6 @@ $(window).bind('scroll load resize', function(e){
 	}
 });
 
-
-
 $(function(){
 	$.get('https://api.github.com/users/Sammaye/repos', null, 'json')
 	.done(function(data){

@@ -4,32 +4,6 @@ body{
 	margin:0;
 }
 
-.side-panel{
-	min-height:100%;
-	position:fixed;
-	background:url('http://sammaye.files.wordpress.com/2014/05/cropped-voyager-1-pale-blue-dot-nasa.jpg') no-repeat scroll center center / cover rgba(51, 71, 61, 0.05);
-}
-
-.about-tile{
-	width:100%;
-	position:absolute;
-	padding:26px;
-	margin:0px auto;
-	bottom:0;
-}
-
-.about-tile h1{
-	color:#fff;
-}
-
-.about-tile h3{
-	color:#666;
-}
-
-.about-tile .user-info{
-	margin-left:150px;
-}
-
 .top-bar{
 	background:#fff;
 	margin-bottom:60px;
@@ -103,6 +77,74 @@ body{
 	visibility: hidden;
 }
 
+.top-username-row{
+	background:#1a1a1a;
+}
+
+.top-username-row .username{
+	color:#fff;
+	padding:20px 0 20px 20px;
+	vertical-align:bottom;
+}
+
+.top-username-row .username h1{
+	margin:0;
+	line-height:32px;
+}
+
+.top-username-row .username span{
+	font-size:14px;
+}
+
+.hidden-brand{
+	display:none;
+	margin-top:5px;
+}
+
+.hidden-brand div{
+	margin-left:50px;
+	padding-top:10px;
+}
+
+.about-me-section{
+	margin:40px 0;
+	text-align:center;
+}
+
+.about-me-section .about{
+	font-size:16px;
+}
+
+.about-me-section .find-head{
+	font-size:18px;
+	margin-top:20px;
+}
+
+.about-me-section .profile-links{
+	margin:30px 0 20px 0;
+}
+
+.about-me-section .profile-links img{
+	height:60px;
+}
+
+.github-repo-section{
+	background:#fff;
+}
+
+.github-repo-section > .top-bar{
+	margin:15px 0;
+}
+
+.github-repo-section .top-bar h2{
+	margin:0;
+	padding:8px;
+}
+
+.repo-grid{
+	padding-left:40px;
+}
+
 @media (max-width: 768px) {
 	.main-avatar{
 		display:none;
@@ -110,5 +152,17 @@ body{
 	
 	.hidden-brand{
 		display:block;
+	}
+	
+	.about-me-section .profile-links{
+		text-align:left;
+	}
+	
+	.about-me-section .profile-links > div{
+		margin-bottom:10px;
+	}
+	
+	.about-me-section .profile-links > div:last-child{
+		margin-bottom:0;
 	}
 }
