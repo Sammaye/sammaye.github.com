@@ -1,29 +1,31 @@
-$(window).bind('scroll load', function(e){
+$(window).bind('scroll load resize', function(e){
+
 	var offset = $('.top-bar').offset();
 	
 	if($(window).scrollTop() > offset.top){
+		$('.main-avatar').css({display: 'none'});
 		if(!Modernizr.mq('(max-width:768px)')){
-			$('.main-avatar').css({display: 'none'});
+			$('.navbar-header').removeClass('col-sm-9 col-md-6 col-lg-4').addClass('col-sm-13 col-md-10 col-lg-7');
+		}else{
+			$('.navbar-header').addClass('col-sm-9 col-md-6 col-lg-4').removeClass('col-sm-13 col-md-10 col-lg-7');
 		}
 		$('.top-bar-inner .hidden-brand').css({display: 'block'});
 		$('.top-bar-inner').addClass('navbar-fixed');
 	}else{
+		
+		$('.navbar-header').addClass('col-sm-9 col-md-6 col-lg-4').removeClass('col-sm-13 col-md-10 col-lg-7');
+		
 		if(!Modernizr.mq('(max-width:768px)')){
 			$('.main-avatar').css({display: 'block'});
+		}else{
+			$('.main-avatar').css({display: 'none'});
 		}
 		$('.top-bar-inner .hidden-brand').css({display: 'none'});
 		$('.top-bar-inner').removeClass('navbar-fixed')
 	}
 });
 
-$(window).bind('resize', function(e){
-	
-	if(Modernizr.mq('(max-width:768px)')){
-		$('.main-avatar').css({display: 'none'});
-	}else{
-		$('.main-avatar').css({display: 'block'});
-	}
-});
+
 
 $(function(){
 	$.get('https://api.github.com/users/Sammaye/repos', null, 'json')
