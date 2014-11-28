@@ -113,7 +113,7 @@ function populateGrid(data){
 	$.each(data, function(){
 		var repo = this;
 		grid.append(
-			$('<div/>', {'class' : 'col-xs-48 col-sm-14 col-md-10 col-lg-9 repo-item'}).append(
+			$('<div/>', {'class' : 'col-xs-46 col-xs-push-1 col-sm-14 col-md-10 col-lg-9 repo-item'}).append(
 				$('<a/>', {href : repo.html_url}).append($('<h4/>').html(repo.name))
 			)
 			.append(
