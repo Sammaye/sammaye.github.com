@@ -95,7 +95,6 @@ function filterDataGrid(data){
 			}else{
 				var notFound = true;
 			}
-			
 		}
 		
 		if(!notFound){
