@@ -53,6 +53,12 @@ body{
 	overflow:hidden;
 }
 
+.navbar{
+	border-left:0;
+	border-right:0;
+	border-radius:0;
+}
+
 .navbar-fixed{
 	position:fixed;
 	top:0;
