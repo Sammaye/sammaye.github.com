@@ -1,184 +1,328 @@
-body{
-	font-family: 'Ubuntu', sans-serif;
-	background:#f0f0f0;
-	margin:0;
+body {
+    font-family: 'Open Sans', sans-serif;
+	padding-top:25px;
 }
 
-.top-bar{
-	background:#fff;
-	margin-bottom:60px;
-	height:50px;
-	z-index:10;
+.link-muted,
+.link-muted:hover,
+.link-muted:active{
+    color:#777;
 }
 
-.top-bar-inner{
-	background:#fff;
-	-webkit-box-shadow: 0px 8px 13px -7px rgba(186,186,186,1);
-	-moz-box-shadow: 0px 8px 13px -7px rgba(186,186,186,1);
-	box-shadow: 0px 8px 13px -7px rgba(186,186,186,1);
-	width:100%;
+.page-header{
+    border:0;
+    padding-bottom:20px;
+    text-align:center;
+    position:relative;
 }
 
-.top-bar-inner h1{
-	margin-top:10px;
+.page-header:after{
+    content:"";
+    position: absolute;
+    left:45%;
+    bottom:0;
+    height:5px;
+    width:10%;
+    border-bottom:5px solid #4FC3F7;
 }
 
-.toolbar{
-	padding:8px;
+.tags .label-default{
+    font-family:arial;
+    border-radius:0;
+    display:inline-block;
 }
 
-.toolbar .input-group{
-	width:50%;
-	margin-left:20px;
-	float:right;
+.tags .label-default{
+    margin-bottom:5px;
 }
 
-.toolbar .btn-group{
-	float:right;
+.tags .label-default{
+    color:#39739d;
+    background:#e1ecf4;
 }
 
-.repo-item{
-	background:#fff;
-	height:160px;
-	margin:0 0 20px 20px;
-	border:1px solid #ddd;
-	border-radius:4px;
-	padding:15px;
-	padding-top:0;
-	overflow:hidden;
+.pagenav-container{
+    height:50px;
 }
 
-.repo-item .repo-description{
-	height:60px;
-	overflow:hidden;
+.navbar-default{
+    background:#fff;
+    border-color:#E3F2FD;
 }
 
-.navbar{
-	border-left:0;
-	border-right:0;
-	border-radius:0;
+.navbar-default > .container-fluid{
+    position:relative;
 }
 
-.navbar-fixed{
-	position:fixed;
-	top:0;
-	z-index:999;
+.navbar-default .navbar-header .navbar-brand{
+    display:none;
 }
 
-.navbar-toggle{
-	border:1px solid #a1a1a1; 
+.navbar-default .navbar-header .navbar-brand img{
+    position:absolute;
+    top:5px;
+    left:10px;
+    border-radius:50%;
 }
 
-.navbar-toggle .icon-bar{
-	background:#1a1a1a;
+.navbar-default .navbar-header .navbar-brand{
+    padding-left:60px;
 }
 
-.main-avatar{
-	position:absolute;
-	top:20px;
-	left:10px;
-	border:1px solid #1a1a1a;
-	z-index:999999999;
-	padding:0;
+.navbar-default .navbar-nav > .active > a, 
+.navbar-default .navbar-nav > .active > a:hover, 
+.navbar-default .navbar-nav > .active > a:focus{
+    color:#2196F3;
+    background:#E3F2FD;
 }
 
 .anchor{
-	display: block;
-	height: 50px;
-	margin-top: -50px;
-	visibility: hidden;
+    display: block;
+    height: 50px;
+    margin-top: -50px;
+    visibility: hidden;
 }
 
-.top-username-row{
-	background:#1a1a1a;
+.about{
+    text-align:center;
 }
 
-.top-username-row .username{
-	color:#fff;
-	padding:20px 0 20px 20px;
-	vertical-align:bottom;
+.about picture img{
+    padding:5px;
+    border:1px solid #eee;
+    border-radius:5px;
 }
 
-.top-username-row .username h1{
-	margin:0;
-	line-height:32px;
+.profiles{
+    text-align:center;
 }
 
-.top-username-row .username span{
-	font-size:14px;
+.profiles ul{
+    list-style:none;
+    float:none;
+    margin:auto;
 }
 
-.hidden-brand{
-	display:none;
-	margin-top:5px;
+.profiles ul > li{
+    display:inline-block;
+    padding:10px;
 }
 
-.hidden-brand div{
-	margin-left:50px;
-	padding-top:10px;
+.profiles ul > li:before{
+    font-family:'FontAwesome';
+    margin-right:5px;
+    color:#999;
 }
 
-.about-me-section{
-	margin:40px 0;
-	text-align:center;
+.profiles .linkedin:before{
+    content:"\f0e1";
 }
 
-.about-me-section .about{
-	font-size:16px;
+.profiles .wordpress:before{
+    content:"\f19a";
 }
 
-.about-me-section .find-head{
-	font-size:18px;
-	margin-top:20px;
+.profiles .github:before{
+    content:"\f09b";
 }
 
-.about-me-section .profile-links{
-	margin:30px 0 20px 0;
+.profiles .stackoverflow:before{
+    content:"\f16c";
 }
 
-.about-me-section .profile-links img{
-	height:60px;
+.profiles .twitter:before{
+    content:"\f099";
 }
 
-.github-repo-section{
-	background:#fff;
+.profiles .email:before{
+    content:"\f003";
 }
 
-.github-repo-section > .action-bar{
-	margin:15px 0;
+.personal-statement{
+    text-align:center;
+    position:relative;
 }
 
-.github-repo-section .action-bar h2{
-	margin:0;
-	padding:8px;
+.personal-statement div > div{
+	margin:auto;
+	float:none;
 }
 
-.repo-grid{
-	margin:0;
+.personal-statement:after{
+    content:"";
+    position: absolute;
+    left:45%;
+    bottom:0;
+    height:5px;
+    width:10%;
+    border-bottom:5px solid #4FC3F7;
 }
 
-@media (max-width: 768px) {
-	.main-avatar{
-		display:none;
+.interests{
+    text-align:center;
+}
+
+.posts .post > div{
+    word-break: break-all;
+}
+
+.posts .post h3{
+    margin-top:0;
+}
+
+.posts .post .category:after{
+    content:", ";
+}
+
+.posts .post .category:last-child:after{
+    content: "";
+}
+
+.repos .repos-grid-container{
+    padding-bottom:50px;
+}
+
+.repos .repo{
+    height:150px;
+}
+
+.repos .repo h3 a{
+    color:#fff;
+    font-weight:bold;
+}
+
+.repos .repo > .inner{
+    margin-top:15px;
+}
+
+.repos .repo h3{
+    margin-top:0;
+}
+
+.repos .repo .fa-heart{
+    color:#F44336;
+    margin-right:10px;
+}
+
+.repos .action-bar{
+    padding-bottom:15px;
+}
+
+.repos .action-bar .input-group{
+    width:80%;
+    float:right;
+}
+
+.repos .repos-grid-container{
+    background:#0D47A1;
+    padding-top:10px;
+}
+
+.repos .repo{
+    text-align: center;
+    color:#fff;
+}
+
+.repos .view-all-repos{
+    text-align:center;
+    font-size:16px;
+    margin-top:20px;
+}
+
+.repos .view-all-repos a{
+    color:#fff;
+}
+
+@media (min-width:1400px){
+    .repos .page-header:after{
+        left:47.5%;
+        width:5%;
+    }
+}
+
+@media (max-width:992px){
+    .repos .action-bar .input-group{
+        width:75%;
+    }
+}
+
+@media (min-width:768px){
+	.tags .label-default{
+		font-size:100%;
 	}
 	
-	.hidden-brand{
-		display:block;
+	.personal-statement{
+		font-size:16px;
+		line-height:1.8em;
+		padding-bottom:30px;
 	}
 	
-	.about-me-section .profile-links{
-		text-align:left;
+    .personal-statement p{
+        margin-bottom:20px;
+    }
+    
+    .personal-statement p:last-child{
+        margin-bottom:0;
+    }
+	
+	.interests h2{
+		font-size:16px;
+	}
+}
+
+@media (max-width:768px){
+    
+    .navbar-default .navbar-header .navbar-brand{
+        font-size:14px;
+    }
+    
+	.posts .post,
+	.repos .repo,    
+	.projects .project{
+		position:relative;
+		padding-bottom:20px;
+		margin-bottom:20px;
 	}
 	
-	.about-me-section .profile-links > div{
-		margin-bottom:10px;
+	.posts .post:after,
+	.repos .repo:after,
+	.projects .project:after{
+		content:"";
+		position: absolute;
+		left:25%;
+		bottom:0;
+		height:1px;
+		width:50%;
+		border-bottom:1px solid #eee;
 	}
 	
-	.about-me-section .profile-links > div:last-child{
-		margin-bottom:0;
+	.repos .repo:after{
+	    border-bottom:1px solid #3F51B5;
 	}
 	
-	.repo-item{
-		margin-left:0;
+	.posts .post:last-child,
+	.repos .repo:last-child,    
+	.projects .project:last-child{
+        padding-bottom:0;
+        margin-bottom:0;
 	}
+	
+	.posts .post:last-child:after,
+	.repos .repo:last-child:after,
+	.projects .project:last-child:after{
+        content:"";
+        display:none;
+	}
+
+    .personal-statement{
+        padding-bottom: 15px;
+    }
+    
+	.interests h2{
+		font-size:14px;
+	}
+	
+    .repos .action-bar .input-group{
+        width:70%;
+    }
 }

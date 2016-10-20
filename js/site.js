@@ -1,41 +1,143 @@
-$(window).bind('scroll load resize', function(e){
+(function() {
+	// This is taken from Stack Overflow, someone provided a pre-written answer to the IE8 problem
+    var d = window.Date,
+        regexIso8601 = /^(\d{4}|\+\d{6})(?:-(\d{2})(?:-(\d{2})(?:T(\d{2}):(\d{2}):(\d{2})\.(\d{1,})(Z|([\-+])(\d{2}):(\d{2}))?)?)?)?$/,
+        lOff, lHrs, lMin;
 
-	var offset = $('.top-bar').offset();
-	
-	if($(window).scrollTop() > offset.top){
-		$('.main-avatar').css({display: 'none'});
-		if(!Modernizr.mq('(max-width:768px)')){
-			$('.navbar-header').removeClass('col-sm-9 col-md-6 col-lg-4').addClass('col-sm-13 col-md-10 col-lg-7');
-		}else{
-			$('.navbar-header').addClass('col-sm-9 col-md-6 col-lg-4').removeClass('col-sm-13 col-md-10 col-lg-7');
-		}
-		$('.top-bar-inner .hidden-brand').css({display: 'block'});
-		$('.top-bar-inner').addClass('navbar-fixed');
+    if (d.parse('2011-11-29T15:52:30.5') !== 1322599950500 ||
+        d.parse('2011-11-29T15:52:30.52') !== 1322599950520 ||
+        d.parse('2011-11-29T15:52:18.867') !== 1322599938867 ||
+        d.parse('2011-11-29T15:52:18.867Z') !== 1322581938867 ||
+        d.parse('2011-11-29T15:52:18.867-03:30') !== 1322594538867 ||
+        d.parse('2011-11-29') !== 1322524800000 ||
+        d.parse('2011-11') !== 1320105600000 ||
+        d.parse('2011') !== 1293840000000) {
+
+        d.__parse = d.parse;
+
+        lOff = -(new Date().getTimezoneOffset());
+        lHrs = Math.floor(lOff / 60);
+        lMin = lOff % 60;
+
+        d.parse = function(v) {
+
+            var m = regexIso8601.exec(v);
+
+            if (m) {
+                return Date.UTC(
+                    m[1],
+                    (m[2] || 1) - 1,
+                    m[3] || 1,
+                    m[4] - (m[8] ? m[9] ? m[9] + m[10] : 0 : lHrs) || 0,
+                    m[5] - (m[8] ? m[9] ? m[9] + m[11] : 0 : lMin) || 0,
+                    m[6] || 0,
+                    ((m[7] || 0) + '00').substr(0, 3)
+                );
+            }
+
+            return d.__parse.apply(this, arguments);
+
+        };
+    }
+
+    d.__fromString = d.fromString;
+
+    d.fromString = function(v) {
+
+        if (!d.__fromString || regexIso8601.test(v)) {
+            return new d(d.parse(v));
+        }
+
+        return d.__fromString.apply(this, arguments);
+    };
+
+})();
+
+Handlebars.registerHelper('formatPostDate', function(date){
+	var d = Date.fromString(date);
+	return d.getDate() + '/' + d.getMonth() + '/' + d.getFullYear();
+});
+
+Handlebars.registerHelper('formatRepoTagLabel', function(lang){
+	switch(lang){
+		case "PHP":
+			return 'label-primary';
+			break;
+		case 'JavaScript':
+			return 'label-warning';
+			break;
+		case 'Python':
+			return 'label-info';
+			break;
+		default:
+			return 'label-default';
+			break;
+	}
+});
+
+Handlebars.registerHelper('repoStarCount', function(c){
+	if(c > 1){
+		return c;
 	}else{
-		
-		$('.navbar-header').addClass('col-sm-9 col-md-6 col-lg-4').removeClass('col-sm-13 col-md-10 col-lg-7');
-		
-		if(!Modernizr.mq('(max-width:768px)')){
-			$('.main-avatar').css({display: 'block'});
-		}else{
-			$('.main-avatar').css({display: 'none'});
-		}
-		$('.top-bar-inner .hidden-brand').css({display: 'none'});
-		$('.top-bar-inner').removeClass('navbar-fixed')
+		return false;
 	}
 });
 
 $(function(){
-	getGithubRepos().done(function(data){
-		populateGrid(filterDataGrid(data));
-	})
+	var section = '#about';
+	if(window.location.hash){
+		section = window.location.hash
+	}
+	$('.navbar-default .navbar-right .navbar-nav li').each(function(){
+		var a = $(this).children('a');
+		if(a.attr('href') ===  section){
+			$(this).addClass('active');
+		}
+	});
+	hideShowNavbarBrand();
+	
+	$.when(
+		populateBlogPosts(),
+		populateRepos()
+	).done(function(){
+		//$(window).trigger('resize');
+	});
 });
+
+function populateBlogPosts(){
+	return $.get(
+		'https://public-api.wordpress.com/rest/v1.1/sites/8362155/posts/\
+		?number=3&status=publish&order_by=date&order=DESC',
+		null,
+		null,
+		'json'
+	).done(function(data){
+		var template = Handlebars.compile($("#post-template").html());
+		$('.post-grid').html(template(data));
+	});
+}
+
+function populateRepos(){
+	return $.get('https://api.github.com/users/Sammaye/repos', null, 'json')
+	.done(function(data){
+		var val = [];
+		$.each(data, function(){
+			this.name_normalised = this.name.toLowerCase();
+			if(this.language){
+				this.language_normalised = this.language.toLowerCase();
+			}
+			val[val.length] = this;
+		});
+		val = filterRepos(val);
+		var template = Handlebars.compile($("#repo-template").html());
+		$('.repos-grid').html(template(val));
+	});
+}
+
 
 $('#search-form').on('submit', function(e){
 	e.preventDefault();
-	getGithubRepos().done(function(data){
-		populateGrid(filterDataGrid(data));
-	});
+	populateRepos();
 });
 
 $('.btn-sort-asc,.btn-sort-desc').on('click', function(e){
@@ -44,36 +146,17 @@ $('.btn-sort-asc,.btn-sort-desc').on('click', function(e){
 	$(this).parent('.btn-group').children('.btn').removeClass('active');
 	$(this).addClass('active');
 	
-	getGithubRepos().done(function(data){
-		populateGrid(filterDataGrid(data));
-	});
+	populateRepos();
 });
 
-var githubRepos=  [];
-
-function getGithubRepos(){
-	return $.get('https://api.github.com/users/Sammaye/repos', null, 'json')
-	.done(function(data){
-		$.each(data, function(){
-			this.name_normalised = this.name.toLowerCase();
-			
-			if(this.language){
-				this.language_normalised = this.language.toLowerCase();
-			}
-			
-			githubRepos[githubRepos.length - 1] = this;
-		});
-	});
-}
-
-function filterDataGrid(data){
+function filterRepos(data){
 	var sort = 'name_normalised';
 	if($('.btn-sort-desc').hasClass('active')){
 		sort = '-name_normalised';
 	}
 	
 	data.sort(dynamicSort(sort));
-	terms = $('.github-search-terms').val();
+	var terms = $('#repoSearchTerm').val();
 	
 	if(!terms){
 		return data;
@@ -105,28 +188,6 @@ function filterDataGrid(data){
 	return newData;
 }
 
-function populateGrid(data){
-
-	var grid = $('.repo-grid');
-	grid.empty();
-	
-	$.each(data, function(){
-		var repo = this;
-		grid.append(
-			$('<div/>', {'class' : 'col-xs-46 col-xs-push-1 col-sm-push-0 col-sm-14 col-md-10 col-lg-9 repo-item'}).append(
-				$('<a/>', {href : repo.html_url}).append($('<h4/>').html(repo.name))
-			)
-			.append(
-				$('<p class="repo-description"/>').html(repo.description)
-			)
-			.append(
-				repo.language ? $('<p/>').html('Language: ' + repo.language) : ''
-			)
-		);
-		
-	});
-}
-
 function dynamicSort(property) {
     var sortOrder = 1;
     if(property[0] === "-") {
@@ -137,4 +198,39 @@ function dynamicSort(property) {
         var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
         return result * sortOrder;
     }
+}
+
+$(document).on('click', '.navbar-default .navbar-right .navbar-nav li a', function(e){
+	var li = $(this).parents('li');
+	if(!li.hasClass('active')){
+		$('.navbar-default .navbar-right .navbar-nav li').removeClass('active');
+		$(this).parents('li').addClass('active');
+	}
+});
+
+$(document).on('scroll resize', function(e){
+	
+	if($(window).scrollTop() === 0){
+		$('.navbar-default .navbar-right .navbar-nav \
+		li a[href="#about"]')
+			.trigger('click');
+	}else{
+		$('.about, .posts, .projects, .repos').each(function(){
+			if($(window).scrollTop() > ($(this).offset().top - 100)){
+				$('.navbar-default .navbar-right .navbar-nav \
+				li a[href="#' + $(this).attr('class') + '"]')
+					.trigger('click');
+			}
+		});
+	}
+	
+	hideShowNavbarBrand();
+});
+
+function hideShowNavbarBrand(){
+	if($(window).scrollTop() > $('.profiles').offset().top){
+		$('.navbar .navbar-brand').css({display: 'block'});
+	}else{
+		$('.navbar .navbar-brand').css({display: 'none'});
+	}
 }
