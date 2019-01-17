@@ -121,13 +121,14 @@ header .personal-statement {
 .interests .highlight-row > div .fas, .interests .highlight-row > div .fab {
   font-size: 2.5rem;
   margin-right: 0.625rem;
+  margin-left: 0.46875rem;
   vertical-align: middle;
   position: absolute;
   left: 0;
   top: 0;
 }
 .interests .highlight-row > div span {
-  margin-left: 3.125rem;
+  margin-left: 3.5rem;
   display: block;
 }
 @media (max-width: 576px) {
@@ -138,6 +139,7 @@ header .personal-statement {
     position: static;
     left: auto;
     top: auto;
+    margin-left: 0;
   }
   .interests .highlight-row > div span {
     margin-left: 0;
