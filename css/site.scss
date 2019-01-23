@@ -146,6 +146,18 @@ header {
     font-size: 6rem;
     text-align: center;
     margin-top: -4.5rem;
+
+    span:before {
+      text-shadow: 0 0 0.3125rem #FFF,
+      0 0 0.625rem #FFF,
+      0 0 0.9375rem #FFF,
+      0 0 1.25rem lighten($interest-color, 20%),
+      0 0 1.875rem lighten($interest-color, 20%),
+      0 0 2.5rem lighten($interest-color, 20%),
+      0 0 3.4375rem lighten($interest-color, 20%),
+      0 0 4.6875rem lighten($interest-color, 20%);
+      //text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0,0,0,.5);
+    }
   }
 
   .highlight-row {
@@ -198,6 +210,7 @@ header {
       font-size: 1.05rem;
       margin-bottom: 0.625rem;
       background-color: $interest-color;
+      padding: 0.3125rem;
     }
   }
 }

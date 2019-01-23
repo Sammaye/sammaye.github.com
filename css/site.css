@@ -119,6 +119,9 @@ header .personal-statement {
   text-align: center;
   margin-top: -4.5rem;
 }
+.interests .head span:before {
+  text-shadow: 0 0 0.3125rem #FFF, 0 0 0.625rem #FFF, 0 0 0.9375rem #FFF, 0 0 1.25rem #e58383, 0 0 1.875rem #e58383, 0 0 2.5rem #e58383, 0 0 3.4375rem #e58383, 0 0 4.6875rem #e58383;
+}
 .interests .highlight-row > div {
   font-size: 1.25rem;
   color: #d32f2f;
@@ -161,6 +164,7 @@ header .personal-statement {
   font-size: 1.05rem;
   margin-bottom: 0.625rem;
   background-color: #d32f2f;
+  padding: 0.3125rem;
 }
 
 .posts {
