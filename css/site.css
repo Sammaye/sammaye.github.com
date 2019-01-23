@@ -121,10 +121,10 @@ header .personal-statement {
 }
 .interests .head span:before {
   text-shadow: 0 0 0.3125rem #FFF, 0 0 0.625rem #FFF, 0 0 0.9375rem #FFF, 0 0 1.25rem #e58383, 0 0 1.875rem #e58383, 0 0 2.5rem #e58383, 0 0 3.4375rem #e58383, 0 0 4.6875rem #e58383;
+  text-shadow: 0 0 0.3125rem #FFF, 0 0 0.625rem #FFF, 0 0 0.9375rem #FFF, 0 0 1.25rem #e58383, 0 0 1.875rem #e58383, 0 0 2rem #e58383, 0 0 2rem #e58383, 0 0 2.5rem #e58383;
 }
 .interests .highlight-row > div {
   font-size: 1.25rem;
-  color: #d32f2f;
   margin-bottom: 2.875rem;
   position: relative;
 }
@@ -136,6 +136,8 @@ header .personal-statement {
   position: absolute;
   left: 0;
   top: 0;
+  color: #d32f2f;
+  opacity: 0.8;
 }
 .interests .highlight-row > div span {
   margin-left: 3.5rem;
