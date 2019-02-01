@@ -3,7 +3,7 @@ $break-md: 768px;
 $break-lg: 992px;
 $break-xl: 1200px;
 
-$interest-color: #d32f2f ;
+$interest-color: #d32f2f;
 
 header {
   background: #f1f1f1;
@@ -50,6 +50,12 @@ header {
 
   .navbar.filled {
     background-color: #01579b !important;
+  }
+
+  .xs-d-block {
+    @media (max-width: $break-sm) {
+      display: block;
+    }
   }
 
   .avatar {

@@ -40,6 +40,11 @@ header .navbar .navbar-brand img {
 header .navbar.filled {
   background-color: #01579b !important;
 }
+@media (max-width: 576px) {
+  header .xs-d-block {
+    display: block;
+  }
+}
 header .avatar {
   border-radius: 50%;
   padding: 0.1875rem;
