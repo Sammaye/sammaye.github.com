@@ -246,7 +246,7 @@
     <script id="post-template" type="text/x-handlebars-template">
       {{#each posts}}
         <div class="col-sm-15 post">
-          <h3><a href="{{this.URL}}">{{{this.title}}}</a></h3>
+          <h3><a href="{{this.URL}}" title="{{{this.title}}}">{{{this.title}}}</a></h3>
           <p class="meta small text-muted">
           {{#if this.categories}}
             {{#each this.categories}}
@@ -265,7 +265,7 @@
     <script id="repo-template" type="text/x-handlebars-template">
       {{#each this}}
         <div class="col-sm-24 col-md-16 repo">
-          <h3 class="h4"><a href="{{html_url}}">{{name}}</a></h3>
+          <h3 class="h4"><a href="{{html_url}}" title="{{name}}">{{name}}</a></h3>
           {{#if description}}
             <p>{{description}}</p>
           {{/if}}
