@@ -59,6 +59,8 @@ header h1, header .personal-statement {
 }
 header h1 {
   font-size: 2.5rem;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 600;
 }
 header .profiles {
   text-align: center;
@@ -102,6 +104,20 @@ header .profiles .twitter:before {
 header .profiles .email:before {
   font-family: "Font Awesome 5 Free";
   content: "";
+}
+header .motto {
+  font-family: "Lora", serif;
+  font-size: 1.5rem;
+}
+@media (max-width: 576px) {
+  header .motto {
+    font-size: 1.35rem;
+  }
+}
+@media (max-width: 400px) {
+  header .motto {
+    font-size: 1.2rem;
+  }
 }
 header .personal-statement {
   font-size: 1.25rem;
@@ -199,6 +215,7 @@ header .personal-statement {
 .posts .header {
   font-size: 2.5rem;
   margin: 0 0 3rem 0;
+  font-family: "Roboto Mono", monospace;
 }
 .posts .posts-spinner {
   padding: 10.3rem 0;
@@ -255,6 +272,7 @@ header .personal-statement {
 .repos .header {
   text-align: center;
   font-size: 2.5rem;
+  font-family: "Roboto Mono", monospace;
 }
 .repos .action-bar {
   margin: 3rem 0;
