@@ -253,12 +253,14 @@ header {
   .badges {
     text-align: center;
     padding-top: 1.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 
     .badge {
       font-size: 1.05rem;
       margin-bottom: 0.625rem;
       background-color: $interest-color;
-      padding: 0.3125rem;
+      padding: 0.5rem;
     }
   }
 }
@@ -364,6 +366,10 @@ header {
     text-align: center;
     padding-bottom: 0.9375rem;
     word-wrap: break-word;
+
+    a {
+      color: #228be6;
+    }
 
     .stargazers-count {
       color: #F44336;
