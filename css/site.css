@@ -274,7 +274,7 @@ header .personal-statement {
 
 .repos {
   position: relative;
-  background: #20262e;
+  background: #343a40;
   z-index: 0;
   color: #fff;
   padding: 0 0 4.375rem 0;
@@ -284,7 +284,7 @@ header .personal-statement {
   width: 100%;
   height: 100%;
   content: "";
-  background: #20262e;
+  background: #343a40;
   top: 0;
   right: 0;
   bottom: 0;
@@ -302,7 +302,7 @@ header .personal-statement {
   margin: 3rem 0;
 }
 .repos .action-bar .form-control {
-  background-color: #000;
+  background-color: #212529;
   border-color: #6c757d;
   color: #fff;
 }
