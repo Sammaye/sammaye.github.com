@@ -135,6 +135,16 @@ header {
     content: "\f0e0";
   }
 
+  .personal-statement {
+    font-size: 1.25rem;
+    text-align: center;
+  }
+
+  .personal-statement {
+    font-weight: 400;
+    font-family: 'Open Sans', sans;
+  }
+
   .motto {
     font-family: 'Lora', serif;
     font-size:1.5rem;
@@ -146,11 +156,6 @@ header {
     @media (max-width: $break-xs) {
       font-size: 1.2rem;
     }
-  }
-
-  .personal-statement {
-    font-size: 1.25rem;
-    text-align: center;
   }
 }
 
