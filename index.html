@@ -246,7 +246,7 @@
     <script id="post-template" type="text/x-handlebars-template">
       {{#each posts}}
         <div class="col-sm-15 post">
-          <h3><a href="{{this.URL}}" title="{{{this.title}}}">{{{this.title}}}</a></h3>
+          <h3><a href="{{this.URL}}" title="{{this.title}}">{{{this.title}}}</a></h3>
           <p class="meta small text-muted">
           {{#if this.categories}}
             {{#each this.categories}}
