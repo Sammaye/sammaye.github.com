@@ -246,6 +246,9 @@ header .motto {
 .interests .tools .svgs img.php {
   width: 80%;
 }
+.interests .tools .svgs img.cakephp {
+  width: 70%;
+}
 .interests .tools .svgs img.js {
   width: 50%;
 }
@@ -263,6 +266,9 @@ header .motto {
     width: 90%;
   }
   .interests .tools .svgs img.php {
+    width: 70%;
+  }
+  .interests .tools .svgs img.cakephp {
     width: 70%;
   }
   .interests .tools .svgs img.js {
