@@ -261,6 +261,9 @@ header .motto {
 .interests .tools .svgs img.mysql {
   width: 80%;
 }
+.interests .tools .svgs img.netsuite {
+  width: 80%;
+}
 @media (max-width: 576px) {
   .interests .tools .svgs img {
     width: 90%;
@@ -281,6 +284,9 @@ header .motto {
     margin-top: 0.625rem;
   }
   .interests .tools .svgs img.mysql {
+    width: 80%;
+  }
+  .interests .tools .svgs img.netsuite {
     width: 80%;
   }
 }

@@ -333,6 +333,10 @@ header {
           width: 80%;
         }
 
+        &.netsuite {
+          width: 80%;
+        }
+
         @media (max-width: $break-sm) {
           width: 90%;
 
@@ -357,6 +361,10 @@ header {
           }
 
           &.mysql {
+            width: 80%;
+          }
+
+          &.netsuite {
             width: 80%;
           }
         }
