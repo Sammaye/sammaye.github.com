@@ -1,3 +1,8 @@
+/**!
+ * Site code
+ */
+var repos = [];
+
 (function() {
     // This is taken from Stack Overflow, someone provided a pre-written answer to the IE8 problem
     var d = window.Date,
@@ -50,16 +55,15 @@
 
         return d.__fromString.apply(this, arguments);
     };
-
 })();
 
-Handlebars.registerHelper('formatPostDate', function(date){
+window.Handlebars.registerHelper('formatPostDate', function (date) {
     var d = Date.fromString(date);
     return d.getDate() + '/' + d.getMonth() + '/' + d.getFullYear();
 });
 
-Handlebars.registerHelper('formatRepoTagLabel', function(lang){
-    switch(lang){
+window.Handlebars.registerHelper('formatRepoTagLabel', function (lang) {
+    switch (lang) {
         case "PHP":
             return 'badge-primary';
             break;
@@ -75,21 +79,19 @@ Handlebars.registerHelper('formatRepoTagLabel', function(lang){
     }
 });
 
-Handlebars.registerHelper('repoStarCount', function(c){
-    if(c > 1){
+window.Handlebars.registerHelper('repoStarCount', function (c) {
+    if (c > 1) {
         return c;
-    }else{
+    } else {
         return false;
     }
 });
 
-$(function(){
-    $.when(
-        loadPosts(),
-        loadRepos()
-    ).done(function(){
-        navbarState(window.location.hash);
-    });
+$.when(
+    loadPosts(),
+    loadRepos()
+).done(function(){
+    navbarState(window.location.hash);
 });
 
 $(document).on('click', 'header .nav-link', function(e){
@@ -173,7 +175,7 @@ function loadPosts(){
         null,
         'json'
     ).done(function(data){
-        var template = Handlebars.compile($("#post-template").html());
+        var template = window.Handlebars.compile($("#post-template").html());
         $('.posts-container').html(template(data));
 
         if (!$('.posts-container').is(':empty')) {
@@ -182,8 +184,6 @@ function loadPosts(){
         }
     });
 }
-
-var repos = [];
 
 function loadRepos(direction){
 
@@ -212,7 +212,7 @@ function loadRepos(direction){
                     this.language_normalised = this.language.toLowerCase();
                 }
                 formatted_data[formatted_data.length] = this;
-            })
+            });
             return formatted_data;
         },
         process_callback = function(){
@@ -258,7 +258,7 @@ function loadRepos(direction){
                 height_changed = true
             }
 
-            var template = Handlebars.compile($("#repo-template").html());
+            var template = window.Handlebars.compile($("#repo-template").html());
             $('.repos-row').html(template(formatted_repos));
 
             if (direction === 'asc') {
@@ -334,12 +334,12 @@ $(window).on('resize', function(e){
     });
 });
 
-$('#search-form').on('submit', function(e){
+$(document).on('submit', '#search-form', function(e){
     e.preventDefault();
     loadRepos();
 });
 
-$('.btn-repos-sort-asc,.btn-repos-sort-desc').on('click', function(e){
+$(document).on('click', '.btn-repos-sort-asc,.btn-repos-sort-desc', function(e){
     e.preventDefault();
     loadRepos($(this).data('direction'));
 });

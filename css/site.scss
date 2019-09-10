@@ -1,11 +1,12 @@
-$break-xs: 480px;
-$break-sm: 576px;
-$break-md: 768px;
-$break-lg: 992px;
-$break-xl: 1200px;
+@import 'variables';
 
-$interest-color: #d32f2f;
-$middle-grey: #f8f9fa;
+@import '../node_modules/bootstrap/scss/bootstrap';
+
+// Font Awesome
+@import '../node_modules/@fortawesome/fontawesome-free/scss/fontawesome';
+@import '../node_modules/@fortawesome/fontawesome-free/scss/brands';
+@import '../node_modules/@fortawesome/fontawesome-free/scss/regular';
+@import '../node_modules/@fortawesome/fontawesome-free/scss/solid';
 
 header {
   background: $middle-grey;
@@ -81,7 +82,7 @@ header {
     font-weight: 600;
   }
 
-  .profiles{
+  .profiles {
     text-align: center;
     padding: 0 0 0.625rem 0;
   }
@@ -147,7 +148,7 @@ header {
 
   .motto {
     font-family: 'Lora', serif;
-    font-size:1.5rem;
+    font-size: 1.5rem;
 
     @media (max-width: $break-sm) {
       font-size: 1.35rem;
@@ -178,7 +179,7 @@ header {
     position: relative;
     margin-top: -15rem;
 
-    &:before{
+    &:before {
       display: block;
       width: 100%;
       height: 0.25rem;
@@ -203,22 +204,22 @@ header {
 
     span:before {
       text-shadow: 0 0 0.3125rem #FFF,
-        0 0 0.625rem #FFF,
-        0 0 0.9375rem #FFF,
-        0 0 1.25rem lighten($interest-color, 20%),
-        0 0 1.875rem lighten($interest-color, 20%),
-        0 0 2.5rem lighten($interest-color, 20%),
-        0 0 3.4375rem lighten($interest-color, 20%),
-        0 0 4.6875rem lighten($interest-color, 20%);
+      0 0 0.625rem #FFF,
+      0 0 0.9375rem #FFF,
+      0 0 1.25rem lighten($interest-color, 20%),
+      0 0 1.875rem lighten($interest-color, 20%),
+      0 0 2.5rem lighten($interest-color, 20%),
+      0 0 3.4375rem lighten($interest-color, 20%),
+      0 0 4.6875rem lighten($interest-color, 20%);
 
       text-shadow: 0 0 0.3125rem #FFF,
-        0 0 0.625rem #FFF,
-        0 0 0.9375rem #FFF,
-        0 0 1.25rem lighten($interest-color, 20%),
-        0 0 1.875rem lighten($interest-color, 20%),
-        0 0 2rem lighten($interest-color, 20%),
-        0 0 2rem lighten($interest-color, 20%),
-        0 0 2.5rem lighten($interest-color, 20%);
+      0 0 0.625rem #FFF,
+      0 0 0.9375rem #FFF,
+      0 0 1.25rem lighten($interest-color, 20%),
+      0 0 1.875rem lighten($interest-color, 20%),
+      0 0 2rem lighten($interest-color, 20%),
+      0 0 2rem lighten($interest-color, 20%),
+      0 0 2.5rem lighten($interest-color, 20%);
     }
   }
 
@@ -472,7 +473,7 @@ header {
     }
 
     input:focus {
-      box-shadow:0 0 0 .2rem rgba(165, 168, 166, .25);
+      box-shadow: 0 0 0 .2rem rgba(165, 168, 166, .25);
     }
   }
 
